@@ -14,6 +14,10 @@
 
 ### *POST*
 ## `/api/albums`
+```json 
+{"name": "album name"},
+{"genreId" : 1}
+```
 
 # Artists 
 ### *GET*
@@ -22,6 +26,12 @@
 
 ### *POST*
 ### `/api/artists`
+```json 
+{"name" : "artist name"}
+```
 ### `/api/artists/albums/albumId`
+```json 
+{"name" : "artist name"}
+```
 ### `/api/artists/artistId/albums/albumId`
 ### `/api/artists/max`
