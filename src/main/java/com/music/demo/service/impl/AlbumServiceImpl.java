@@ -61,6 +61,12 @@ public class AlbumServiceImpl implements AlbumService{
 	}
 
 
+	@Override
+	public AlbumDto getAlbum(Long id) {
+		Album album = albumRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Album", "id", id));
+		return mapDto(album);
+	}
+
 
 	// map to dto
 	private AlbumDto mapDto(Album album)
@@ -76,6 +82,9 @@ public class AlbumServiceImpl implements AlbumService{
 
 		return album;
 	}
+
+
+	
 
 
 	

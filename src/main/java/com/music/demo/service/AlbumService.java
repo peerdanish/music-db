@@ -9,6 +9,5 @@ public interface AlbumService {
 	AlbumDto saveAlbum(AlbumDto albumDto);
 	List<AlbumDto> getAllAlbums();
 	List<AlbumDto> getAlbumsByGenre(Long genreId);
-	// Object artistByMaxAlbum();
-	// Object getAlbumsByMax();
+	AlbumDto getAlbum(Long id);
 }
