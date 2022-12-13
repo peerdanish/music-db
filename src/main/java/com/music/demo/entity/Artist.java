@@ -39,7 +39,7 @@ public class Artist {
 	@Column(name = "artist_name")
 	private String name;
 
-
+	
 	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinTable(name = "ALBUM_ARTIST", 
 	joinColumns = {

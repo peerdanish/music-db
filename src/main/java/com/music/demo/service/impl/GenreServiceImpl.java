@@ -53,12 +53,12 @@ public class GenreServiceImpl implements GenreService{
 	}
 
 	// map to genre
-	private Genre mapGenre(GenreDto genreDto)
-	{
-		Genre genre = mapper.map(genreDto, Genre.class);
+	// private Genre mapGenre(GenreDto genreDto)
+	// {
+	// 	Genre genre = mapper.map(genreDto, Genre.class);
 
-		return genre;
-	}
+	// 	return genre;
+	// }
 
 	
 }

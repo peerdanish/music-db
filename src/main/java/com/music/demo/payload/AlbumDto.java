@@ -9,7 +9,7 @@ import lombok.Data;
 
 @Data
 public class AlbumDto {
-	// private Long id;
+	private Long id;
 	private String name;
 	private Long genreId;
 	private Set<Artist> artists = new HashSet<Artist>();

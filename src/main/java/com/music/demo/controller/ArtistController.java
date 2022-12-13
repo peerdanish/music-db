@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.music.demo.payload.ArtistDto;
-import com.music.demo.service.AlbumService;
 import com.music.demo.service.ArtistService;
 
 @RestController
@@ -18,11 +17,10 @@ import com.music.demo.service.ArtistService;
 public class ArtistController {
 	
 	private ArtistService artistService;
-	private AlbumService albumService;
 
-	public ArtistController(ArtistService artistService, AlbumService albumService) {
+
+	public ArtistController(ArtistService artistService) {
 		this.artistService = artistService;
-		this.albumService = albumService;
 	}
 	// post request for artist with albumId
 	@PostMapping("/album/{albumId}")
