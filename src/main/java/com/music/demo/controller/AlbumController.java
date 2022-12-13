@@ -36,4 +36,6 @@ public class AlbumController {
 	public ResponseEntity<?> getAlbumsByGenre(@PathVariable Long genreId) {
 		return new ResponseEntity<>(albumService.getAlbumsByGenre(genreId), HttpStatus.OK);
 	}
+
+	
 }

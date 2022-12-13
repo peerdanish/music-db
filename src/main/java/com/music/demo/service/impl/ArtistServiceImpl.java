@@ -73,6 +73,13 @@ public class ArtistServiceImpl implements ArtistService{
 		Album album = albumRepository.findById(albumId).orElseThrow(() -> new RuntimeException("Album not found"));
 		artist.getAlbums().add(album);
 		Artist result = artistRepository.save(artist);
+		return mapDto(result);
+	}
+
+	@Override
+	public ArtistDto artistByMaxAlbum() {
+		List<Artist> artistList = artistRepository.findAll();
+		Artist artist = artistList.stream().max((a1, a2) -> a1.getAlbums().size() - a2.getAlbums().size()).get();
 		return mapDto(artist);
 	}
 
@@ -88,17 +95,8 @@ public class ArtistServiceImpl implements ArtistService{
 	private Artist mapArtist(ArtistDto artistDto)
 	{
 		Artist artist = mapper.map(artistDto, Artist.class);
-
 		return artist;
 	}
-
-
-
-
-
-
-
-
 
 }
 

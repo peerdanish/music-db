@@ -9,4 +9,5 @@ public interface ArtistService {
 	ArtistDto getArtist(Long id);
 	List<ArtistDto> getAllArtist();
 	ArtistDto addAlbumToArtist(Long artistId, Long albumId);
+	ArtistDto artistByMaxAlbum();
 }

@@ -37,6 +37,7 @@ public class AlbumServiceImpl implements AlbumService{
 	public AlbumDto saveAlbum(AlbumDto albumDto) {
 		// check if genre exists
 		genreRepository.findById(albumDto.getGenreId()).orElseThrow(() -> new ResourceNotFoundException("Genre", "id", albumDto.getGenreId()));
+		
 		//map and save to db
 		Album album = mapAlbum(albumDto);
 		albumRepository.save(album);
