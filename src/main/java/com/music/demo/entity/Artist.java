@@ -1,7 +1,7 @@
 package com.music.demo.entity;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -10,6 +10,8 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
@@ -23,25 +25,30 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @Entity
 
-@Table(name = "album_tbl", uniqueConstraints = {
+@Table(name = "artist_table", uniqueConstraints = {
 	@UniqueConstraint(columnNames = "id")
 })
-public class Album {
-	
+public class Artist {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	@Column(name = "name")
+	@Column(name = "artist_name")
 	private String name;
-	@Column(name = "genre_id")
-	private Long genreId;
 
+
+	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinTable(name = "ALBUM_ARTIST", 
+	joinColumns = {
+		@JoinColumn(name = "artist_id")
+	},
+	inverseJoinColumns = {
+		@JoinColumn(name = "album_id")
+	}
+	)
 	@JsonIgnore
-	@ManyToMany(mappedBy = "albums", fetch = FetchType.LAZY , cascade = CascadeType.ALL)
-	private Set<Artist> artists = new HashSet<Artist>();
-
+	private List<Album> albums = new ArrayList<Album>();
 }

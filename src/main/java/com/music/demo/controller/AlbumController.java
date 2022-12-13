@@ -2,6 +2,7 @@ package com.music.demo.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,6 +24,11 @@ public class AlbumController {
 	public ResponseEntity<AlbumDto> saveAlbum(@RequestBody AlbumDto albumDto) {
 		
 		return new ResponseEntity<>(albumService.saveAlbum(albumDto), HttpStatus.CREATED);
+	}
+
+	@GetMapping
+	public ResponseEntity<?> getAllAlbums() {
+		return new ResponseEntity<>(albumService.getAllAlbums(), HttpStatus.OK);
 	}
 	
 	
