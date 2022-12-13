@@ -9,6 +9,7 @@
 # Albums 
 ### *GET*
 ### `/api/albums/`
+### `/api/albums/id`
 ### `/api/albums/genre/id`
 
 ### *POST*
