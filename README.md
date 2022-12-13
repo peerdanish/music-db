@@ -11,7 +11,7 @@
 ### `/api/albums/`
 ### `/api/albums/genre/id`
 
-## *POST*
+### *POST*
 ## `/api/albums`
 
 # Artists 
