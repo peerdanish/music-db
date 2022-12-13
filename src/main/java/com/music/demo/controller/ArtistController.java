@@ -5,6 +5,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -36,10 +37,16 @@ public class ArtistController {
 	public ResponseEntity<ArtistDto> getArtist(@PathVariable Long id) {
 		return new ResponseEntity<>(artistService.getArtist(id), HttpStatus.OK);
 	}
-	
+
 	@GetMapping
 	public ResponseEntity<?> getAllArtist() {
 
 		return new ResponseEntity<>(artistService.getAllArtist(), HttpStatus.OK);
 	}
+
+	@PutMapping("/{artistId}/albums/{albumId}")
+	public ResponseEntity<?> addAlbumToArtist(@PathVariable Long artistId, @PathVariable Long albumId) {
+		return new ResponseEntity<>(artistService.addAlbumToArtist(artistId, albumId), HttpStatus.OK);
+	}
+
 }

@@ -52,6 +52,13 @@ public class AlbumServiceImpl implements AlbumService{
 		return result;
 	}
 
+	@Override
+	public List<AlbumDto> getAlbumsByGenre(Long genreId) {
+		List<Album> albumList = albumRepository.findByGenreId(genreId);
+		List<AlbumDto> result = albumList.stream().map( (item) -> mapDto(item)).collect(Collectors.toList());
+		return result;
+	}
+
 
 
 	// map to dto
@@ -68,6 +75,9 @@ public class AlbumServiceImpl implements AlbumService{
 
 		return album;
 	}
+
+
+	
 
 
 	

@@ -67,6 +67,15 @@ public class ArtistServiceImpl implements ArtistService{
 	}
 	
 
+	@Override
+	public ArtistDto addAlbumToArtist(Long artistId, Long albumId) {
+		Artist artist = artistRepository.findById(artistId).orElseThrow(() -> new RuntimeException("Artist not found"));
+		Album album = albumRepository.findById(albumId).orElseThrow(() -> new RuntimeException("Album not found"));
+		artist.getAlbums().add(album);
+		Artist result = artistRepository.save(artist);
+		return mapDto(artist);
+	}
+
 
 	// map to dto
 	private ArtistDto mapDto(Artist artist)
@@ -82,6 +91,9 @@ public class ArtistServiceImpl implements ArtistService{
 
 		return artist;
 	}
+
+
+
 
 
 

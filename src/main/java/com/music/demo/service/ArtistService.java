@@ -8,4 +8,5 @@ public interface ArtistService {
 	ArtistDto saveArtist(Long albumId, ArtistDto artistDto);
 	ArtistDto getArtist(Long id);
 	List<ArtistDto> getAllArtist();
+	ArtistDto addAlbumToArtist(Long artistId, Long albumId);
 }
