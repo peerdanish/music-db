@@ -12,7 +12,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -27,9 +26,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @Entity
 
-@Table(name = "album_tbl", uniqueConstraints = {
-	@UniqueConstraint(columnNames = "id")
-})
+@Table(name = "album_tbl")
 public class Album {
 	
 	@Id

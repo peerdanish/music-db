@@ -7,7 +7,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -21,9 +20,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 
-@Table(name = "genreTbl", uniqueConstraints = {
-	@UniqueConstraint(columnNames = {"id"})
-})
+@Table(name = "genreTbl")
 public class Genre {
 	
 	@Id
