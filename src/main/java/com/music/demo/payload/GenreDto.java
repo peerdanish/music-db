@@ -1,7 +1,5 @@
 package com.music.demo.payload;
 
-
-
 import lombok.Data;
 
 @Data

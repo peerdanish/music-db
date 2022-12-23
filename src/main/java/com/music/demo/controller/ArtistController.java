@@ -23,7 +23,7 @@ public class ArtistController {
 		this.artistService = artistService;
 	}
 	// post request for artist with albumId
-	@PostMapping("/album/{albumId}")
+	@PostMapping("/albums/{albumId}")
 	public ResponseEntity<ArtistDto> saveArtist(@PathVariable Long albumId, @RequestBody ArtistDto artistDto) {
 		return new ResponseEntity<>(artistService.saveArtist(albumId,artistDto), HttpStatus.CREATED);
 	}

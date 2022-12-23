@@ -83,12 +83,5 @@ public class AlbumServiceImpl implements AlbumService{
 		return album;
 	}
 
-
-	
-
-
-	
-
-
 	
 }
