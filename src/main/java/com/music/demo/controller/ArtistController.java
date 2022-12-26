@@ -1,5 +1,7 @@
 package com.music.demo.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,13 +26,13 @@ public class ArtistController {
 	}
 	// post request for artist with albumId
 	@PostMapping("/albums/{albumId}")
-	public ResponseEntity<ArtistDto> saveArtist(@PathVariable Long albumId, @RequestBody ArtistDto artistDto) {
+	public ResponseEntity<ArtistDto> saveArtist(@Valid @PathVariable Long albumId, @RequestBody ArtistDto artistDto) {
 		return new ResponseEntity<>(artistService.saveArtist(albumId,artistDto), HttpStatus.CREATED);
 	}
 
 	// post request for artist without albumId
 	@PostMapping()
-	public ResponseEntity<ArtistDto> saveArtist(@RequestBody ArtistDto artistDto) {
+	public ResponseEntity<ArtistDto> saveArtist(@Valid @RequestBody ArtistDto artistDto) {
 		return new ResponseEntity<>(artistService.saveArtist(null,artistDto), HttpStatus.CREATED);
 	}
 	// get single artist
@@ -47,7 +49,7 @@ public class ArtistController {
 
 	// map album to artist
 	@PostMapping("/{artistId}/albums/{albumId}")
-	public ResponseEntity<?> addAlbumToArtist(@PathVariable Long artistId, @PathVariable Long albumId) {
+	public ResponseEntity<?> addAlbumToArtist(@Valid @PathVariable Long artistId, @Valid @PathVariable Long albumId) {
 		return new ResponseEntity<>(artistService.addAlbumToArtist(artistId, albumId), HttpStatus.OK);
 	}
 

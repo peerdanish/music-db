@@ -1,5 +1,7 @@
 package com.music.demo.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,7 +24,7 @@ public class AlbumController {
 	}
 
 	@PostMapping
-	public ResponseEntity<AlbumDto> saveAlbum(@RequestBody AlbumDto albumDto) {
+	public ResponseEntity<AlbumDto> saveAlbum(@Valid @RequestBody AlbumDto albumDto) {
 		
 		return new ResponseEntity<>(albumService.saveAlbum(albumDto), HttpStatus.CREATED);
 	}
